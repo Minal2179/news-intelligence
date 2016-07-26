@@ -27,13 +27,13 @@ var Q         = require('q');
 require('./config/express')(app);
 
 var toneAnalyzer = watson.tone_analyzer({
-  username: '<username>',
-  password: '<password>',
+  username: '45dd880d-7f16-4a61-aac8-2b7423c0328d',
+  password: 'eUwYE7leRpzG',
   version: 'v3',
   version_date: '2016-05-19'
 });
 
-var alchemyApiKey = { api_key: process.env.ALCHEMY_API_KEY || '<your api key>'};
+var alchemyApiKey = { api_key: process.env.ALCHEMY_API_KEY || 'ed8ff5abd5d2aa620fe02257bb3757dba29134e8'};
 var alchemyLanguage = watson.alchemy_language(alchemyApiKey);
 var alchemyDataNews = watson.alchemy_data_news(alchemyApiKey);
 
@@ -42,7 +42,7 @@ var getTone = Q.nfbind(toneAnalyzer.tone.bind(toneAnalyzer));
 var getNews = Q.nfbind(alchemyDataNews.getNews.bind(alchemyDataNews));
 
 function entityQuery(entity) {
-  return '\|text=' + entity + ',type=company,relevance=>0.25\|';
+  return '\|text=' + entity + ',type=person,relevance=>0.25\|';
 }
 
 function keywordSentiment(keyword, sentiment) {
