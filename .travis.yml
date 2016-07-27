@@ -9,8 +9,8 @@ deploy:
   api: https://api.ng.bluemix.net
   username: $CF_USERNAME
   password: $CF_PASSWORD
-  organization: WatsonPlatformServices
-  space: appgallery
+  organization: Imbibe
+  space: Innovation zone
   on:
     repo: watson-developer-cloud/news-intelligence
     branch: master

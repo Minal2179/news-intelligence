@@ -3,7 +3,7 @@ declared-services:
     label: tone_analyzer
     plan: standard
 applications:
-- name: news-intelligence-ref-hackathon
+- name: news-intelligencehackathon2
   command: npm start
   path: .
   memory: 512M

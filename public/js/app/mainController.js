@@ -270,40 +270,9 @@
       }
     }.bind(this);
 
-    this.widgets.push(new app.SentimentBalls(
-      this._createDummyContainer('customer-sentiment-container'), this.model.data));
+   
 
-    var topicsLoadingContainer = document.getElementById('topics-loading-container');
-    var topicsDetailContainer = document.getElementById('topics-details-container');
-
-    topicsLoadingContainer.style.display = '';
-    topicsDetailContainer.style.display = 'none';
-
-    var fetchKeywordsPromise = this.model.fetchKeywords();
-    var header = document.getElementById('details-header');
-
-    fetchKeywordsPromise.then(function() {
-      var topicsChart = new app.TopicsBallChart(
-          this._createDummyContainer('topic-chart-container'), this.model.data);
-      var topicsTable = new app.TopicsTable(this._createDummyContainer('topic-list-container'), {
-        model: this.model
-      });
-
-      this.widgets.push(topicsTable);
-      this.widgets.push(topicsChart);
-
-      topicsChart.onClickHandle = function(data) {
-        var selectedElem = topicsTable.selectTopic(data);
-        if (selectedElem) {
-          var boundingRect = selectedElem.getBoundingClientRect();
-          var elemYDistance = boundingRect.top + window.pageYOffset - header.scrollHeight;
-          window.scroll(0, elemYDistance);
-        }
-      };
-
-      topicsLoadingContainer.style.display = 'none';
-      topicsDetailContainer.style.display = '';
-    }.bind(this));
+   
 
     this._changeSections(true);
   };
